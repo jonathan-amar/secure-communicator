@@ -26,8 +26,8 @@ AES Key Encryption (CBC)
 
 ## INTEGRITY
 
-Nonces
+Nonce usage
 - Uses securely transfered seed value to produce deterministic random values, preventing replay attacks
 
 SHA256
-- Attaches hashed digest of plaintext to encrypted message. Ensures sent message has not been altered in any way
+- Attaches hashed digest of plaintext to encrypted message. Ensures sent message has not been altered in any way after sending
