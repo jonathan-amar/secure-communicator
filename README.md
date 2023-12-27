@@ -1,6 +1,6 @@
 # secure-communicator
 A secure messaging program created in Python using the Pycryptodome library.
-Send secure messages over a unsecure network.
+Send secure messages over a unsecure network using socket connection.
 Command line program.
 
 TO RUN:
