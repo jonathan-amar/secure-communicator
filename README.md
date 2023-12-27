@@ -1,2 +1,29 @@
 # secure-communicator
-A secure messaging program
+A secure messaging program created in Python using the Pycryptodome library.
+Send secure messages over a unsecure network.
+Command line program.
+
+TO RUN:
+1. Install Python 3.0 or later
+2. install the pycryptodome library using the command
+
+       pip install pycryptodome
+
+3. Run communicator.py in your IDE.
+
+
+# Features
+======CONFIDENTIALITY======
+RSA Asymmetric Key encryption
+- Allows secure transfer of AES key and nonce seed over an unsecure network via digital envelope
+
+AES Key Encryption (CBC)
+- Encrypts message using AES in CBC mode
+
+======INTEGRITY======
+
+Nonces
+- Uses securely transfered seed value to produce deterministic random values, preventing replay attacks
+
+SHA256
+- Attaches hashed digest of plaintext to encrypted message. Ensures sent message has not been altered in any way
