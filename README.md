@@ -10,7 +10,8 @@ TO RUN:
 
        pip install pycryptodome
 
-4. Run communicator.py in your IDE.
+4. Download communicator.py and run as project
+6. Run communicator.py
 
 
 
