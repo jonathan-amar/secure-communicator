@@ -1,8 +1,7 @@
 ##
 #A program to safely share messages over an unsafe network
 #Author(s): Jonathan Amar
-#Version: 9 December 2022
-#CS325: Information and Security Systems
+#Version: 26 December 2023
 ##
 
 import os
@@ -391,7 +390,7 @@ def send_loop(s, aes_key, seed, nonce, sequence):
             # If it does, prompt the user to enter a new message
             while len(message) > MAX_MESSAGE:
                 print("Message exceeds maximum length")
-                message = input("Enter message (max length 4096")
+                message = input("Enter message (max length 4096) : ")
             # Encrypt the user's message using the AES key and the previously generated seed, sequence, and nonce
             enc_msg = encrypt_message(message, aes_key, seed, sequence, nonce)
             # Send the encrypted message to the other party
@@ -473,12 +472,12 @@ def receive_loop(conn, aes_key, seed, sequence, nonce):
             # Use a context manager to ensure the connection is closed properly after the loop finishes
             with conn:
                 # Prompt the user to enter a message
-                message = input("Enter message (Max length 4096): ")
+                message = input("Enter message (Max length 4096) : ")
                 # Check if the message exceeds the maximum allowed length
                 # If it does, prompt the user to enter a new message
                 while len(message) > MAX_MESSAGE:
                     print("ERROR: Message exceeds max length")
-                    message = input("Enter message (Max length 4096): ")
+                    message = input("Enter message (Max length 4096) : ")
                 # Encrypt the user's message using the AES key and the previously generated seed, sequence, and nonce
                 enc_msg = encrypt_message(message, aes_key, seed, sequence, nonce)
                 # Send the encrypted message to the client
@@ -529,12 +528,12 @@ def receive_setup():
        Receives encrypted messages over a socket and establishes a symmetric key for further communication.
     """
     # Prompt the user to enter the IP address of the sender (the client)
-    ip = input("Enter IP Address of sender (leave empty for all): ")
+    ip = input("Enter IP Address of sender (leave empty for all) : ")
     # Check if the IP address is valid or is empty
     # If it is not, prompt the user to enter a new IP address
     while not (valid_ip(ip) or ip == ''):
         print("ERROR: Invalid IPV4 address")
-        ip = input("Enter IP Address of sender (leave empty for all): ")
+        ip = input("Enter IP Address of sender (leave empty for all) : ")
     # Use a socket to bind to the specified IP address and port and listen for incoming connections
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind((ip, PORT))
@@ -580,7 +579,7 @@ def send_setup():
     """
     # List the available public keys and prompt the user to select one
     list_public_keys()
-    filename = input("Select public key: ")
+    filename = input("Select public key : ")
     # Check if the selected public key exists
     # If it does not, prompt the user to select a different key
     while not (os.path.isfile(MY_KEYS_DIR + filename + "_pub"+ RSA_EXTN)):
@@ -592,7 +591,7 @@ def send_setup():
     # If it is not, prompt the user to enter a new IP address
     while not (valid_ip(ip)):
         print("ERROR: Invalid IPV4 address")
-        ip = input("Type Recipient IP: ")
+        ip = input("Type Recipient IP : ")
     # Open the public key file in read-binary mode and the private key file in read-binary mode
     pub_key_file = open(MY_KEYS_DIR + filename + "_pub" + RSA_EXTN, 'rb')
     prv_key_file = open(MY_KEYS_DIR + filename + "_prv" + RSA_EXTN, 'rb')
@@ -649,7 +648,7 @@ def menu():
     print("2: View RSA key pairs")
     print("3: Send Message")
     print("4: Receive Message")
-    print("0 - Exit")
+    print("0: Exit")
 
 
 def main():
