@@ -5,11 +5,12 @@ Command line program.
 
 TO RUN:
 1. Install Python 3.0 or later
-2. install the pycryptodome library using the command
+2. Install your preferred IDE
+3. install the pycryptodome library using the command
 
        pip install pycryptodome
 
-3. Run communicator.py in your IDE.
+4. Run communicator.py in your IDE.
 
 
 
