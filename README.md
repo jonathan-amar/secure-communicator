@@ -12,15 +12,18 @@ TO RUN:
 3. Run communicator.py in your IDE.
 
 
+
+
+
 # Features
-======CONFIDENTIALITY======
+## CONFIDENTIALITY
 RSA Asymmetric Key encryption
 - Allows secure transfer of AES key and nonce seed over an unsecure network via digital envelope
 
 AES Key Encryption (CBC)
 - Encrypts message using AES in CBC mode
 
-======INTEGRITY======
+## INTEGRITY
 
 Nonces
 - Uses securely transfered seed value to produce deterministic random values, preventing replay attacks
